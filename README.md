@@ -1,6 +1,6 @@
 # awesome-spaceflight-software-best-practices
 
-This is the data used for a major research project on the history of catastrophic spacecraft failures caused by software faults (bugs) and best practices associated with software development for spacecraft flight software.
+This is the data used for a research project on the history of catastrophic spacecraft failures caused by software faults and best practices associated with software development for spacecraft flight software.
 
 ## Contents
 - [List of Spacecraft Failures Caused by Software Faults](#list-of-spacecraft-failures-caused-by-software-faults)
