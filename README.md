@@ -66,7 +66,7 @@ This is the data used for a research project on the history of catastrophic spac
 [What Really Happened on Mars](./PDF/Crash_Reports/What_Really_Happened_on_Mars.pdf)
 
 
-## Software Safety Standards
+## Software Safety Standards and Coding Guidelines
 
 [Embedded_C_(ISO-IEC_TR_18037)](./PDF/Coding_Standards/Embedded_C_(ISO-IEC_TR_18037).pdf)
 
@@ -101,9 +101,6 @@ This is the data used for a research project on the history of catastrophic spac
 [ESA_Calculation_of_Radiation_and_its_Effects_(ECSS-E-HB-10-12A)](./PDF/Coding_Standards/ESA_Calculation_of_Radiation_and_its_Effects_(ECSS-E-HB-10-12A).pdf)
 
 [ESA_Radiation_Hardness_Assurance_(ECSS Q_ST_60_15C)](./PDF/Coding_Standards/ESA_Radiation_Hardness_Assurance_(ECSS_Q_ST_60_15C).pdf)
-
-
-## Coding Guidelines
 
 
 ## Friendly Lists
