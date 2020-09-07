@@ -68,6 +68,40 @@ This is the data used for a research project on the history of catastrophic spac
 
 ## Software Safety Standards
 
+[Embedded_C_(ISO-IEC_TR_18037)](./PDF/Coding_Standards/Embedded_C_(ISO-IEC_TR_18037).pdf)
+
+[JSF++_(Joint_Strike_Fighter)_C++_Coding_Standard](./PDF/Coding_Standards/JSF++_(Joint_Strike_Fighter)_C++_Coding_Standard.pdf)
+
+[NASA_Software_Safety_Guidebook_(GB-8719.13)](./PDF/Coding_Standards/NASA_Software_Safety_Guidebook_(GB-8719.13).pdf)
+
+[NASA_Software_Safety_Standard_(STD-8719.13B)](./PDF/Coding_Standards/NASA_Software_Safety_Standard_(STD-8719.13B).pdf)
+
+[NASA_C++_Coding_Standard_and_Style_Guide](./PDF/Coding_Standards/NASA_C++_Coding_Standard_and_Style_Guide.pdf)
+
+[ESA_Software_Safety_Guidebook_(ECSS-E-HB-40A)](./PDF/Coding_Standards/ESA_Software_Safety_Guidebook_(ECSS-E-HB-40A).pdf)
+
+[NASA_Software_Safety_Standard_(STD-8719.13B)](./PDF/Coding_Standards/NASA_Software_Safety_Standard_(STD-8719.13B).pdf)
+
+[ESA_Software_Engineering_Standards_(PSS-05-01)](./PDF/Coding_Standards/ESA_Software_Engineering_Standards_(PSS-05-01).pdf)
+
+[ESA_C_and_C++_Coding_Standards](./PDF/Coding_Standards/ESA_C_and_C++_Coding_Standards.pdf)
+
+[ESA_Software_Dependability_and_Safety_(ECSS-Q-HB-80-03)](./PDF/Coding_Standards/ESA_Software_Dependability_and_Safety_(ECSS-Q-HB-80-03).pdf)
+
+[ESA_Space_Engineering_Software_(CSS-E-ST-40C)](./PDF/Coding_Standards/ESA_Space_Engineering_Software_(CSS-E-ST-40C).pdf)
+
+[ESA_Testing_(ECSS-E-ST-10-03C)](./PDF/Coding_Standards/ESA_Testing_(ECSS-E-ST-10-03C).pdf)
+
+[ESA_Risk_Management_(ECSS-M-ST-80C)](./PDF/Coding_Standards/ESA_Risk_Management_(ECSS-M-ST-80C).pdf)
+
+[ESA_Technology_Readiness_Levels](./PDF/Coding_Standards/ESA_Technology_Readiness_Levels.pdf)
+
+[ESA_Electrical,_Electronic_and_Electromechanical_Components_(ECSS_Q_ST_60C)](./PDF/Coding_Standards/ESA_Electrical,_Electronic_and_Electromechanical_Components_(ECSS_Q_ST_60C).pdf)
+
+[ESA_Radiation_Hardness_Assurance_(ECSS Q_ST_60_15C)](./PDF/Coding_Standards/ESA_Radiation_Hardness_Assurance_(ECSS Q_ST_60_15C).pdf)
+
+[ESA_Calculation_of_Radiation_and_its_Effects_(ECSS-E-HB-10-12A)](./PDF/Coding_Standards/ESA_Calculation_of_Radiation_and_its_Effects_(ECSS-E-HB-10-12A).pdf)
+
 
 ## Coding Guidelines
 
