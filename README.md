@@ -80,8 +80,6 @@ This is the data used for a research project on the history of catastrophic spac
 
 [ESA_Software_Safety_Guidebook_(ECSS-E-HB-40A)](./PDF/Coding_Standards/ESA_Software_Safety_Guidebook_(ECSS-E-HB-40A).pdf)
 
-[NASA_Software_Safety_Standard_(STD-8719.13B)](./PDF/Coding_Standards/NASA_Software_Safety_Standard_(STD-8719.13B).pdf)
-
 [ESA_Software_Engineering_Standards_(PSS-05-01)](./PDF/Coding_Standards/ESA_Software_Engineering_Standards_(PSS-05-01).pdf)
 
 [ESA_C_and_C++_Coding_Standards](./PDF/Coding_Standards/ESA_C_and_C++_Coding_Standards.pdf)
