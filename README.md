@@ -5,9 +5,8 @@ This is the data used for a research project on the history of catastrophic spac
 ## Contents
 - [List of Spacecraft Failures Caused by Software Faults](#list-of-spacecraft-failures-caused-by-software-faults)
 - [Crash Investigation Reports](#crash-investigation-reports)
-- [Software safety standards](#software-safety-standards)
-- [Coding guidelines](#coding-guidelines)
-- [Friendly lists](#friendly-lists)
+- [Software Safety Standards and Coding Guidelines](#software-safety-standards-and-coding-guidelines)
+- [Friendly Lists](#friendly-lists)
 
 
 ## List of Spacecraft Failures Caused by Software Faults
