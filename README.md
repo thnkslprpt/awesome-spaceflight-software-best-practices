@@ -67,6 +67,23 @@ This is the data used for a research project on the history of catastrophic spac
 
 ## Software Safety Standards and Coding Guidelines
 
+| Standard/Guideline | Year | Language(s) |
+| :-- | :-: | :-: |
+| DO-178B | 1992 | General |
+| NASA C | 1994 | C |
+| MISRA C:1998 | 1998 | C |
+| ESA C and C++ | 2000 | C/C++ |
+| MISRA C:2004 | 2004 | C |
+| NASA Software Safety Guidebook | 2004 | All (incl. C/C++) |
+| JSF (Joint Strike Fighter) C++ | 2005 | C++ |
+| NASA C++ | 2005 | C++ |
+| Power of Ten | 2006 | C |
+| MISRA C++ | 2008 | C++ |
+| JPL C | 2009 | C |
+| DO-178C | 2011 | General |
+| MISRA C:2012 | 2012 | C |
+| BARR C | 2018 | C |
+
 [Embedded_C_(ISO-IEC_TR_18037)](./PDF/Coding_Standards/Embedded_C_(ISO-IEC_TR_18037).pdf)
 
 [JSF++_(Joint_Strike_Fighter)_C++_Coding_Standard](./PDF/Coding_Standards/JSF++_(Joint_Strike_Fighter)_C++_Coding_Standard.pdf)
