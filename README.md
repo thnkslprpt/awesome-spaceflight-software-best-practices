@@ -117,6 +117,26 @@ This is the data used for a research project on the history of catastrophic spac
 
 [ESA_Radiation_Hardness_Assurance_(ECSS Q_ST_60_15C)](./PDF/Coding_Standards/ESA_Radiation_Hardness_Assurance_(ECSS_Q_ST_60_15C).pdf)
 
+<br/><br/>
+Important rules or guidelines that are common to most of the standards include:
+- **Document and justify deviations from the standard:** this expectation was established early on in DO-178B, MISRA C:1998 and the ESA C and C++ coding standard, and has carried through to be included in most of the standards since. 
+- **Use modern, safer language features rather than their older, less safe counterparts:** C++ casts rather than C-style casts, C++ smart pointers rather than <code>new</code> /<code>delete</code> or C-style pointers
+- **Include default/fall-through clauses for all <code>switch,</code> <code>if...else</code> statements:** <code>default</code> for all <code>switch</code> statements, a final <code>else</code> for all <code>if...else</code> statements, a final <code>catch</code> for any unhandled exceptions
+- **Include default handlers for exceptions:** use function <code>set_unexpected()</code> and function <code>set_terminate()</code> for handling errant exceptions
+- **Functions should have a single point of exit:** as per the overarching industry standard (IEC 61508) 
+- **Qualify as <code>const</code> any variables that are not modified:** i.e. utilise <code>const</code> to increase compile time error-detection
+- **Use simple control flow (avoid recursion, avoid use of statements like <code>goto</code> and <code>continue</code>):** recursion and jumping logic make program flow harder to reason about, especially for future programmers maintaining the software
+- **Avoid dynamic memory allocation/deallocation after initialisation:** most memory allocators/deallocators (e.g. <code>malloc</code>, <code>free</code>) have non-deterministic behaviour, and not allocating all memory at initialisation means that a large class of errors become possible such as forgetting to free memory, over-utilisation of memory etc.
+<code>typedef</code> the basic numerical types: allows the signedness and size of the main types to be immediately clear in the code, rather than relying on implementation-specific assumptions
+- **Objects should be declared at the most limited scope possible:** the more limited the scope and lifetime of an object, the lower the chances that it can be improperly accessed
+- **Be explicit rather than implicit:** examples include implicit conversion to <code>bool</code> in an <code>if</code> statement, using brackets to control the order of operations
+- **Use unambiguous typography:** Identifiers should differ by only a mixture of case, the letter <code>‘O’</code> and the number <code>‘0’</code>, <code>‘l’</code> and <code>‘1’</code>, <code>‘i’</code> and <code>‘l’</code>, <code>‘S’</code> and <code>‘5’</code>, <code>‘Z’</code> and <code>‘2’</code>, <code>‘n’</code> and <code>‘h’</code>, <code>‘B’</code> and <code>‘8’</code> or other easily misidentified characters.
+
+A selection of noteworthy guideline-specific rules are included below:
+- **ESA C and C++** advised that programmers should optimise for clear, maintainable code as a first preference; only optimising for speed, memory usage or compactness when absolutely necessary (Rule 7). ESA also has a very strict subset for use onboard spacecraft which bans the use of exceptions, templates, namespaces, multiple or virtual inheritance and dynamic memory allocation (Rule 124).
+- **MISRA C++: 2008** allows the use of <code>goto</code> in limited circumstances (only for forward jumps, not back, and only in the same function body).
+- **JPL (Jet Propulsion Laboratory) C** states as its goals: Reliability, Portability (i.e. not compiler or linker dependent), Maintainability (code should be consistent, readable, simple in design, and easy to debug), Testability (by minimising the following in each code module: code size, complexity, static path count (number of paths through a piece of code), Reusability, Extensibility, Readability.
+- **BARR-C: 2018** takes a much more serious view of style, considering it a major component of successful error prevention. The standard lists almost 70 style-related guidelines, in sharp contrast to almost all other safety-critical and space-related software standards which leave stylistic concerns squarely in the domain of organization and team preference.
 
 ## Friendly Lists
 
