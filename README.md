@@ -6,6 +6,7 @@ This is the data used for a research project on the history of catastrophic spac
 - [List of Spacecraft Failures Caused by Software Faults](#list-of-spacecraft-failures-caused-by-software-faults)
 - [Crash Investigation Reports](#crash-investigation-reports)
 - [Software Safety Standards and Coding Guidelines](#software-safety-standards-and-coding-guidelines)
+- [Detailed Recommendations](#detailed-recommendations)
 - [Friendly Lists](#friendly-lists)
 
 
@@ -137,6 +138,59 @@ A selection of noteworthy guideline-specific rules are included below:
 - **MISRA C++: 2008** allows the use of <code>goto</code> in limited circumstances (only for forward jumps, not back, and only in the same function body).
 - **JPL (Jet Propulsion Laboratory) C** states as its goals: Reliability, Portability (i.e. not compiler or linker dependent), Maintainability (code should be consistent, readable, simple in design, and easy to debug), Testability (by minimising the following in each code module: code size, complexity, static path count (number of paths through a piece of code), Reusability, Extensibility, Readability.
 - **BARR-C: 2018** takes a much more serious view of style, considering it a major component of successful error prevention. The standard lists almost 70 style-related guidelines, in sharp contrast to almost all other safety-critical and space-related software standards which leave stylistic concerns squarely in the domain of organization and team preference.
+
+## Detailed Recommendations
+These recommendations are not focused on minor variations in grammar/formatting - the likes of which inspire voluminous and never-ending debates between programmers. Nor are they focused on generally applicable principles such as maintaining architectural integrity and adopting well-worn design patterns. The focus is instead on issues that are directly related to space-related software safety, and that can clearly be linked with safety implications in operational code.
+
+Techniques to deal with software faults can broadly be categorised into three primary areas: prevention, detection, and containment; as further defined by Dvorak (2009):
+>“Prevention includes strong requirements capture and analysis, architectural principles, model-based engineering, coding standards, and codestructuring rules. Detection includes not only traditional testing but also compliance checkers, static source code analyzers, logic model checking, and test randomization techniques. Containment includes hierarchical backup methods, memory protection techniques, and broad use of software safety margins.”
+
+Each area is important and needs to receive due consideration during design and construction of the software system. Prevention of faults has obvious benefits, rapid and accurate detection may be the difference between having time to save a mission or not, and effective containment can help to reduce the impact of faults and keep the other subsystems running smoothly.
+
+Some of the below recommendations are time or cost-intensive and are in direct or partial conflict with other considerations. In general, making a system safer (for humans) can reduce its reliability (ability to achieve its tasks) or performance. On the other hand, making a system more complex or encompassing more functionality can make it less safe. Adequate risk management requires weighing these competing interests against cost and schedule considerations and designing a compromise suitable for the scale of the mission and the operational environment (ECSS 2008). If good design has put a system at the pareto-optimal frontier of safety, given the cost and schedule constraints, safety can only be further improved by impairing another parameter such as cost, speed, flexibility etc. (Dvorak 2009).
+
+At the same time, a holistic view of system safety and fault management will improve overall safety. The only way to increase safety in some circumstances may be to situate it in a different area of control (software/hardware/operator/procedural). An example is provided below in figure 3 from NASA’s Software Safety Guidebook.
+
+| Cause | Control | Example |
+| :-: | :-: | :-: |
+| Hardware | Hardware | Pressure vessel with pressure relief valve. |
+| Hardware | Software | Fault detection and safing function; or arm/fire checks which activate or prevent hazardous conditions. |
+| Hardware | Operator | Operator opens switch to remove power from failed unit. |
+| Software | Hardware | Hardwired timer or discrete hardware logic to screen invalid commands or data. Sensor directly triggering a safety switch to override a software control system. Hard stops for a robotic arm. |
+| Software | Software | Two independent processors, one checking the other and intervening if a fault is detected. Emulating expected performance and detecting deviations. |
+| Software | Operator | Operator sees control parameter violation on display and terminates process. |
+| Operator | Hardware | Three electrical switches in series in a firing circuit to tolerate two operator errors. |
+| Operator | Software | Software validation of operator-initiated hazardous command. Software prevents operation in unsafe mode. |
+| Operator | Operator | Two crew members, one commanding and the other monitoring. |
+
+**Language Choice**
+In early space missions, computer instructions were coded by hand in assembly. As the industry developed in the 60s, 70s and 80s programming was done in the higher-level languages of Fortran and ADA, which were still considered highly safe. As the other technical industries gained prominence and drew the most talented engineers, the languages used in those industries, including C and C++, became the default for safety-critical implementations, thanks to their increased functionality and large pool of qualified engineers (Leveson 2013). In the present day, finding enough engineers experienced in Fortran or ADA (let alone assembly) would likely be impossible for a new project, and probably not desirable given the level of safety possible with subsets of C and C++ (Rierson 2017).
+
+The other major consideration relevant during language choice is the level of tool support in the specific mission domain, taking into account the relevant hardware.
+
+C has proven the most suitable option in many spacecraft software engineering scenarios, given its ability to closely manipulate the underlying hardware, support for some higher-level concepts, and wide tool support (Bagnara et al. 2018). Nevertheless, these strengths come with several contingent weaknesses:
+- Wide tool support has essentially led to the creation of countless ‘dialects’ of C, where each compiler, each with hundreds of optimisation and other options that can be enabled or disabled, outputs different object code at the end of the build process
+- The ‘trust the programmer’ approach adopted by the C Standard allows almost anything to be done with the language - including highly unsafe actions that most often lead to faults
+
+C++ has seen a faster pace of innovation and introduction of new features with major updates in 1998, 2003 and 2011. The popularity of C++ in many other industries, including gaming and robotics, is mainly thanks to its speed and wide feature-set. Younger aerospace companies like SpaceX or Rocket Lab use C++ for flight software to take advantage of the large number of qualified engineers, and perhaps also due to their higher level of risk tolerance (SpaceX 2020, RocketLab 2020).
+
+**Use a Coding Standard**
+The IEEE Institute of Electrical and Electronics Engineers) and the IEC (International Electrotechnical Commission) are the two main standards bodies responsible for publishing software safety standards. These standards cover the full software lifecycle and focus more on documentation and process requirements (Lawrence 1995), which is not the primary focus of this paper. Coding standards have been covered above, and are an important safety element of any project. While each company or institution will have their own preferences and internal guidelines, it is important that a defined set of standards exists. Project standards should be:
+- **Minimal:** don’t add unnecessary, pedantic or confusing guidelines that will be hard for programmers to understand and comply with.
+- **Established:** using a common, established, fixed guideline (e.g. MISRA, Power of Ten etc.) will increase the proportion of people interacting with the code that will be familiar with the rule set. Also, using an unmodified (or as minimally modified as possible) rule set allows easy machine-checkable analysis by the established tools in the market - changing rules to fit a project may seem valuable at the time, but it may then be time consuming, and often impossible, to perfectly configure static analysis tools for automated checking of compliance with the modified standard.
+
+The coding standard chosen will define the subset of the language that is considered safe for the intended use. Each standard defines its language subset to remove the most error-prone and ambiguous or non-deterministic features of a language. Once a language, coding standard and toolchain are chosen for a project, it must remain fixed to allow unambiguous verification.
+
+The list of recommended coding rules, in the previous section, will most likely be present in the coding standard chosen, and in general they provide a solid foundation on which to customise the project-specific coding guidelines.
+
+**Avoiding Complexity**
+The single most influential factor in avoiding downstream software faults is avoiding complexity. Minimising the complexity of a system, wherever possible, is the highest leverage activity that can be applied early in a development process. A simpler design for a software module can reduce the number of logical paths through the code, and the number of potential faults, by an order of magnitude or more.
+
+NASA recognised the worrying trend of increasing size and complexity in flight software, and commissioned a large-scale study of the issue in 2007 which was published in 2009. The definition of complexity used in the study was chosen to be intuitive and practical: “how hard something is to understand or verify” (Dvorak 2009). Another, more specific definition, is referenced as well which is that complexity represents the number of variables and their interdependencies - with more of either increasing the overall complexity (Dorner 1997). Moving to an even more specific definition of complexity as it applies to software, the UK Ministry of Defence classifies a system as complex “if its design is unsuitable for the application of exhaustive simulation and test, and therefore its behavior cannot be verified by exhaustive testing” (UK MOD 1999). Dvorak, author of the NASA study, notes that software has become the ‘complexity sponge’ of modern spacecraft, as a seemingly never-ending stream of new features and capabilities are expected to be implemented by new systems. Other trends that have led to growing complexity include increasing autonomy, longer missions (and multiple pre-planned mission extensions) and higher expectations of fault protection code to maintain system operations rather than simply entering a safe mode (Reinholtz in Dvorak 2009).
+
+The level of complexity of the mission itself, as well as the hardware and software of the spacecraft, plays an outsized role in the eventual success of a mission. To put it quite simply - the more complex the mission, the higher the chances of failure or an impairment. This fact seems like common sense but is apparently regularly forgotten as missions become ever-more complex while development and integration costs are expected to remain ‘lean’. In figure 2 below, the inevitability of increasing development cost is obvious as mission complexity increases. This study (Bearden et al. 2012) assessed factors like number of payloads, design life, data recording/uplink/downlink requirements, redundancy requirements etc. to measure overall complexity of the flight systems in each mission. Another clear message from the study is the fact that trying to cut corners or institute a ‘better, faster, cheaper’ approach will increase the chances of mission failure or impairment - almost all of the failures/impairments in the study were developed significantly below the average cost for missions of similar complexity.
+
+![img](./images/img.jpg)
 
 ## Friendly Lists
 
