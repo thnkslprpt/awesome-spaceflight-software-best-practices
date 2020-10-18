@@ -190,7 +190,7 @@ NASA recognised the worrying trend of increasing size and complexity in flight s
 
 The level of complexity of the mission itself, as well as the hardware and software of the spacecraft, plays an outsized role in the eventual success of a mission. To put it quite simply - the more complex the mission, the higher the chances of failure or an impairment. This fact seems like common sense but is apparently regularly forgotten as missions become ever-more complex while development and integration costs are expected to remain ‘lean’. In figure 2 below, the inevitability of increasing development cost is obvious as mission complexity increases. This study (Bearden et al. 2012) assessed factors like number of payloads, design life, data recording/uplink/downlink requirements, redundancy requirements etc. to measure overall complexity of the flight systems in each mission. Another clear message from the study is the fact that trying to cut corners or institute a ‘better, faster, cheaper’ approach will increase the chances of mission failure or impairment - almost all of the failures/impairments in the study were developed significantly below the average cost for missions of similar complexity.
 
-![img](./images/img.jpg)
+![img](images/img.jpg)
 
 ## Friendly Lists
 
