@@ -292,5 +292,5 @@ It should be possible to directly trace every requirement to the code that imple
 Flowchart illustrating bi-directional and direct mapping between each part of the development chain (Rierson 2017)
 
 
-## Friendly Lists
+<!-- ## Friendly Lists -->
 
