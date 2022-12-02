@@ -94,7 +94,7 @@ This is the data used for a research project on the history of catastrophic spac
 
 [NASA_Software_Safety_Standard_(STD-8719.13B)](./PDF/Coding_Standards/NASA_Software_Safety_Standard_(STD-8719.13B).pdf)
 
-[NASA_C_Coding_Standard_and_Style_Guide](./PDF/NASA_C_Style_Guide_-_SEL-94-003.pdf)
+[NASA_C_Coding_Standard_and_Style_Guide](./PDF/Coding_Standards/NASA_C_Style_Guide_-_SEL-94-003.pdf)
 
 [NASA_C++_Coding_Standard_and_Style_Guide](./PDF/Coding_Standards/NASA_C++_Coding_Standard_and_Style_Guide.pdf)
 
